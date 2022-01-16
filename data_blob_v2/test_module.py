@@ -1,4 +1,5 @@
 from unittest.mock import MagicMock, Mock, patch
+import dependency_injector
 import pytest
 
 from services import AuthService, BlobContainerService
@@ -28,3 +29,4 @@ def test_module(container):
     assert result == True
     assert container.config.dcinternal.scope() == 'data-prd-keyvault'
     assert container.config.dcinternal.key_name() == 'dcinternal-account-key'
+
