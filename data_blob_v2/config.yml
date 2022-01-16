@@ -1,0 +1,3 @@
+dcinternal:
+  scope: "data-prd-keyvault"
+  key_name: "dcinternal-account-key"
