@@ -1,6 +1,0 @@
-data_adx
-data_blob
-data_cosmos
-data_generic
-data_sql
-dc_azure_toolkit
