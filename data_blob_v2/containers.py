@@ -1,6 +1,6 @@
 from dependency_injector import containers, providers
 
-import services
+from .services import AuthService, BlobContainerService
 
 
 class Container(containers.DeclarativeContainer):
@@ -8,14 +8,15 @@ class Container(containers.DeclarativeContainer):
     config = providers.Configuration(yaml_files=["config.yml"])
     #config = providers.Configuration()
 
-    auth_service = providers.Factory(services.AuthService,
+    auth_service = providers.Factory(AuthService,
+                                    storage_account_name = 'dcinternal',
                                     scope = config.dcinternal.scope,
                                     key_name = config.dcinternal.key_name
                                     )
 
     blob_container_service = providers.Factory(
-        services.BlobContainerService,
-        auth_service= providers.Factory(auth_service)      
+        BlobContainerService,
+        auth_service = providers.Factory(auth_service)      
     )
 
 
