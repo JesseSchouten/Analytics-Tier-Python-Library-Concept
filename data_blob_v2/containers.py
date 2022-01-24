@@ -9,15 +9,12 @@ class Container(containers.DeclarativeContainer):
     #config = providers.Configuration()
 
     auth_service = providers.Factory(AuthService,
-                                    storage_account_name = 'dcinternal',
-                                    scope = config.dcinternal.scope,
-                                    key_name = config.dcinternal.key_name
-                                    )
+                                     storage_account_name='dcinternal',
+                                     scope=config.dcinternal.scope,
+                                     key_name=config.dcinternal.key_name
+                                     )
 
     blob_container_service = providers.Factory(
         BlobContainerService,
-        auth_service = providers.Factory(auth_service)      
+        auth_service=providers.Factory(auth_service)
     )
-
-
-
