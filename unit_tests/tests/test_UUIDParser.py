@@ -24,3 +24,28 @@ def test_convert_to_uppercase_uuid_without_seperators_success():
     assert parser.convert_to_uppercase_uuid_without_seperators('1d25d1f5-8b05-41ad-8c2e-912ea52d8103') == '1D25D1F58B0541AD8C2E912EA52D8103'
     assert parser.convert_to_uppercase_uuid_without_seperators('1d25d1f58b05-41ad-8c2e-912ea52d8103') == '1D25D1F58B0541AD8C2E912EA52D8103'
     assert parser.convert_to_uppercase_uuid_without_seperators('1d25d1f58b0541ad8c2e912ea52d8103') == '1D25D1F58B0541AD8C2E912EA52D8103'
+
+def test_convert_to_uuid_input_failure():
+    parser = UUIDParser()
+    with pytest.raises(AttributeError):
+        parser.convert_to_uppercase_uuid_without_seperators('random-non-uuid-string')
+        parser.convert_to_uppercase_uuid_without_seperators('1d25d1f5-8b05-41ad-8c2e-912ea52d81')
+
+
+def test_convert_to_uuid_without_seperators_failure():
+    parser = UUIDParser()
+    with pytest.raises(AttributeError):
+        parser.convert_to_uuid_without_seperators('random-non-uuid-string')
+        parser.convert_to_uuid_without_seperators('1d25d1f5-8b05-41ad-8c2e-912ea52d81')
+
+def test_convert_to_uppercase_uuid_failure():
+    parser = UUIDParser()
+    with pytest.raises(AttributeError):
+        parser.convert_to_uppercase_uuid('random-non-uuid-string')
+        parser.convert_to_uppercase_uuid('1d25d1f5-8b05-41ad-8c2e-912ea52d81')
+
+def test_convert_to_uppercase_uuid_without_seperators_failure():
+    parser = UUIDParser()
+    with pytest.raises(AttributeError):
+        parser.convert_to_uppercase_uuid_without_seperators('random-non-uuid-string')
+        parser.convert_to_uppercase_uuid_without_seperators('1d25d1f5-8b05-41ad-8c2e-912ea52d81')
